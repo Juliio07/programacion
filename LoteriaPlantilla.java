@@ -2,20 +2,37 @@ package reto_equipo5;
 
 
 import java.util.Scanner;
+import java.util.random.*;
+
 
 
 //Excepción propia
 class GordoException extends Exception {
-	//COMPLETAR
-}
+	//COMPLETAR //julio
+	public GordoException(String mensaje) {
+		super(mensaje); 
+		}
+     
 
 public class LoteriaPlantilla {	
 	
 	//devuelve un array de tamaño numBolas con todos los números del sorteo
 	public static int[] creaBomboNumeros(int numBolas) {
-		//COMPLETAR
+		//COMPLETAR  //JULIO
+		int[] bombo= new int[numBolas];
+		int contador=0;
+		for(int i=0; i<numBolas;i++ ) {
+		boolean repetido=false;
+		
+		 for (int j = 0; j < contador; j++) {
+             if (bombo[j] == numBolas[i]) {
+                 repetido = true;
+                 break;
+             }//Sin repetidos
 	}
-	
+	}
+	}
+		
 	//devuelve un array de tamaño numPremios con todos los premios del sorteo
 	public static String[] creaBomboPremios(int numPremios) {
 		String[] bomboPremios = new String[numPremios];
@@ -23,15 +40,22 @@ public class LoteriaPlantilla {
 		bomboPremios[0]="PRIMER PREMIO";  // gordo de navidad
 		bomboPremios[1]="SEGUNDO PREMIO";	// un segundo premio
 		
-		//COMPLETAR
+		//COMPLETAR //julio
 		
 		// un tercer premio
+		bomboPremios[2]="TERCER PREMIO";
 		
 		// dos cuartos premios
-
+        bomboPremios[3]="CUARTO PREMIO";
+        bomboPremios[4]="CUARTO PREMIO";
 		// 8 quintos premios
-
+       for(int i=5; i<12;i++) {
+    	   System.out.println("QUINTO PREMIO");
+       }
 		// el resto hasta completar 1.807 premios son "pedrea"
+		for(int i=12;i<1807;i++) {
+			System.out.println("pedrea");
+		}
 		
 		System.out.println("Bombo de premios creado...");
 		return bomboPremios;
@@ -51,6 +75,7 @@ public class LoteriaPlantilla {
 		bombo[numAgraciado]=-1;
 		
 		//COMPLETAR
+		
 	}
 	
 	//devuelve un premio al azar del bombo de premios
@@ -62,8 +87,14 @@ public class LoteriaPlantilla {
 		int indicePremiado = (int) (Math.random()*bombo.length);
 
 		// si el premio ya había salido, generamos otro al azar
-		//COMPLETAR
-		
+		//COMPLETAR   //julio
+		for(i=0;i<13;i++) {
+			boolean repetido=false;
+			
+		}
+	   
+	       
+	     
 		// marcamos el premio que ha salido 
 		//COMPLETAR
  				
@@ -74,11 +105,14 @@ public class LoteriaPlantilla {
 	//Comprueba si un décimo ha sido agraciado y en tal caso indica por consola el premio
 	//Ejemplo: "Agraciado con: pedrea"
 	public static String heSidoAgraciado(String[] numerosSorteo, String[] premiosSorteo, String miDecimo){
-		String premio="Número no premiado"; //valor por defecto
+		String premio="Número no premiado";//valor por defecto
 			
-		//COMPLETAR
-
-	}
+		//COMPLETAR //Julio
+   int[] numerosSorteo= {00000, 99999};
+   int[] premiosSorteo= {0,13};
+   int[] miDecimo= {};
+   
+   
 	
 	
 	//Implementa un bucle para comprobar, haciendo uso del método heSidoAgraciado, si nuestro décimo tiene o no premio
@@ -95,6 +129,8 @@ public class LoteriaPlantilla {
 		
 		//Compruebo si me ha tocado la lotería
 		//COMPLETAR
+		
+		System.out.println("Introduzca los 5 dígitos de su décimo  (fin para terminar");
 		
 	}
 				
@@ -146,12 +182,16 @@ public class LoteriaPlantilla {
 			compruebaDecimos(listaNumerosSorteo, listaPremiosSorteo);
 				
 			
-		} 	//COMPLETAR (capturar excepción propia)
-		
+		}	//COMPLETAR (capturar excepción propia) //Julio
+	
+		try {
+			LoteriaPlantilla.
+		}
 		catch (Exception e) {
 				System.out.println("Error:"+e.getMessage());
 				} finally {
 					System.out.println("\nSorteo finalizado");			
 				}		
 	}
+}
 }
