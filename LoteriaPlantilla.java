@@ -12,26 +12,20 @@ class GordoException extends Exception {
 	public GordoException(String mensaje) {
 		super(mensaje); 
 		}
-     
+}
 
 public class LoteriaPlantilla {	
 	
 	//devuelve un array de tamaño numBolas con todos los números del sorteo
 	public static int[] creaBomboNumeros(int numBolas) {
-		//COMPLETAR  //JULIO
+		//COMPLETAR  //julio y dani
 		int[] bombo= new int[numBolas];
-		int contador=0;
-		for(int i=0; i<numBolas;i++ ) {
-		boolean repetido=false;
-		
-		 for (int j = 0; j < contador; j++) {
-             if (bombo[j] == numBolas[i]) {
-                 repetido = true;
-                 break;
-             }//Sin repetidos
+		for(int i=0;i<numBolas;i++) {
+			bombo[i]=numBolas;
+	 }
+		return bombo;
 	}
-	}
-	}
+	
 		
 	//devuelve un array de tamaño numPremios con todos los premios del sorteo
 	public static String[] creaBomboPremios(int numPremios) {
@@ -40,7 +34,7 @@ public class LoteriaPlantilla {
 		bomboPremios[0]="PRIMER PREMIO";  // gordo de navidad
 		bomboPremios[1]="SEGUNDO PREMIO";	// un segundo premio
 		
-		//COMPLETAR //julio
+		//COMPLETAR //julio y dani
 		
 		// un tercer premio
 		bomboPremios[2]="TERCER PREMIO";
@@ -49,12 +43,12 @@ public class LoteriaPlantilla {
         bomboPremios[3]="CUARTO PREMIO";
         bomboPremios[4]="CUARTO PREMIO";
 		// 8 quintos premios
-       for(int i=5; i<12;i++) {
-    	   System.out.println("QUINTO PREMIO");
+       for(int i=5; i<numPremios;i++) {
+    	   bomboPremios[i]="QUINTO PREMIO";
        }
 		// el resto hasta completar 1.807 premios son "pedrea"
-		for(int i=12;i<1807;i++) {
-			System.out.println("pedrea");
+		for(int i=13;i<numPremios;i++) {
+			bomboPremios[i]="Pedrea";
 		}
 		
 		System.out.println("Bombo de premios creado...");
@@ -75,7 +69,7 @@ public class LoteriaPlantilla {
 		bombo[numAgraciado]=-1;
 		
 		//COMPLETAR
-		
+		return  numAgraciado;
 	}
 	
 	//devuelve un premio al azar del bombo de premios
@@ -88,18 +82,20 @@ public class LoteriaPlantilla {
 
 		// si el premio ya había salido, generamos otro al azar
 		//COMPLETAR   //julio
-		for(i=0;i<13;i++) {
-			boolean repetido=false;
-			
-		}
+		
+		while(bombo[indicePremiado]==null) {
+			indicePremiado = (int) (Math.random()*bombo.length);
+		
 	   
-	       
-	     
+		}
 		// marcamos el premio que ha salido 
-		//COMPLETAR
- 				
+		//COMPLETAR //julio
+	   
+       bombo[indicePremiado]= null;
+		
 		return premio;
 	}
+	
 	
 	
 	//Comprueba si un décimo ha sido agraciado y en tal caso indica por consola el premio
@@ -108,17 +104,18 @@ public class LoteriaPlantilla {
 		String premio="Número no premiado";//valor por defecto
 			
 		//COMPLETAR //Julio
-   int[] numerosSorteo= {00000, 99999};
-   int[] premiosSorteo= {0,13};
-   int[] miDecimo= {};
-   
-   
-	
+		
+		for(int i=0; i<numerosSorteo.length;i++) {
+			if(numerosSorteo[i].equals(miDecimo));
+			premio=premiosSorteo[i];
+		}
+		return premio;
+	}
 	
 	//Implementa un bucle para comprobar, haciendo uso del método heSidoAgraciado, si nuestro décimo tiene o no premio
 	// Debe comprobar que se introducen exactamente 5 dígitos entre el 0 y el 9, por ejemplo 04544
 	// Al introducir fin, finaliza la comprobación de décimos
-	public static void compruebaDecimos(String[] numerosSorteo, String[] premiosSorteo) throws GordoException{
+	public static void compruebaDecimos(String[] numerosSorteo, String[] premiosSorteo) throws GordoException {
 		Scanner sc=new Scanner(System.in);	
 		String miDecimo;
 		String miPremio="";
@@ -130,7 +127,7 @@ public class LoteriaPlantilla {
 		//Compruebo si me ha tocado la lotería
 		//COMPLETAR
 		
-		System.out.println("Introduzca los 5 dígitos de su décimo  (fin para terminar");
+		
 		
 	}
 				
@@ -182,16 +179,17 @@ public class LoteriaPlantilla {
 			compruebaDecimos(listaNumerosSorteo, listaPremiosSorteo);
 				
 			
-		}	//COMPLETAR (capturar excepción propia) //Julio
+		}	//COMPLETAR (capturar excepción propia) //
 	
-		try {
-			LoteriaPlantilla.
-		}
+		
 		catch (Exception e) {
 				System.out.println("Error:"+e.getMessage());
 				} finally {
 					System.out.println("\nSorteo finalizado");			
 				}		
-	}
+	
 }
+
+
 }
+
